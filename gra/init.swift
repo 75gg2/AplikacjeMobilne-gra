@@ -49,12 +49,44 @@ func loadActions()->Void{
         }
     );
     Action(
-        key:"Bieg na autobus",
-        endpoints: ["Zaryzykuj": "Brzebiegnij przed samochodem",
-                    "Powrot do domu": "Wróć do domu"],
-        onLoad:{
-            print("Jedzie samochód, ale musisz mu przeciąć drogę. Czy matematyka jest tego naprawdę warta?")
-        }
+            key:"Powrot do domu",
+            endpoints: ["Dom":"Ok"],
+            onLoad:{
+                print("""
+                      Wracasz do domu. NIc nie tracisz bo jutro też szkoła!
+                      Mija dzień...
+                      """)
+            }
     );
+    Action(
+            key:"Bieg na autobus",
+            endpoints: ["Zaryzykuj": "Brzebiegnij przed samochodem",
+                        "Wymuszenie": "Biegnij, ale ostrożnie",
+                        "Powrot do domu": "Wróć do domu"],
+            onLoad:{
+                print("Jedzie samochód, ale musisz mu przeciąć drogę. Czy matematyka jest tego naprawdę warta?")
+            }
+    );
+    Action(
+            key:"Zaryzykuj",
+            endpoints: ["Ucieczka": "Ucieknij ze szpitala",
+                        "Policja pokojowy": "Poczekaj na policję, będą wyjaśniać wypadek"],
+            onLoad:{
+                print("Potrącił cię samochód.     Budzisz się w szpitalu.\n    Jesteś poobijany, ale nic ci nie jest. ")
+            }
+    );
+    Action(
+            key:"Ucieczka",
+            endpoints: ["Skok": "Pierwsze piętro, możesz uciekać oknem.",
+                        "Korytarz": "Uciekaj schodami"],
+            onLoad:{
+                print("Uciekasz. Potrzebujesz wyjść z pokoju")
+            }
+    );
+
+
+
+//    Skaczesz, lecz na dole jest samochód. włącza się alarm.
+
     //TODO - powrot do domu
 }
